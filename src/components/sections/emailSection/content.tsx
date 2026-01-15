@@ -57,9 +57,10 @@ export default function EmailSection() {
           <form
             ref={formRef}
             onSubmit={handleSubmit}
-            className="flex-1 flex gap-3"
+            
           >
-            <input
+          <div className="flex flex-wrap gap-3 w-[clamp(200px,50vw,700px)]">
+              <input
               type="email"
               name="email"
               required
@@ -74,6 +75,7 @@ export default function EmailSection() {
             >
               {isLoading ? 'Submitting...' : 'RSVP Now'}
             </button>
+          </div>
           </form>
         </div>
 

@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function HeroSection() {
   return (
-    <section id="about" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="about" className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
         <Image
           src="/header_background.png"
@@ -15,7 +15,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="relative z-10 max-w-7xl  px-4 sm:px-6 lg:p-20">
         <div className="space-y-6">
           <div className="mb-8">
             <h3 className="text-white font-light text-lg">
@@ -24,7 +24,7 @@ export default function HeroSection() {
           </div>
 
           <div className="inline-block">
-            <span className="bg-cyan-400 text-black px-4 py-2 rounded font-bold text-sm tracking-wider">
+            <span className="bg-cyan-400 text-black py-5 px-7 rounded font-bold text-xl tracking-wider">
               Invite-Only
             </span>
             <span className="text-cyan-300 text-lg font-light pl-5">
@@ -32,14 +32,13 @@ export default function HeroSection() {
           </span>
           </div>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight max-w-4xl">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold leading-tight max-w-5xl">
             <span className="text-yellow-600">The Skills That Matter Next:</span>
             <br />
             <span className="text-yellow-600">Preparing Your Workforce</span>
             <br />
-            <span className="text-yellow-600">&amp; Leaders for the</span>
+            <span className="text-yellow-600">&amp; Leaders for the AI Era</span>
             <br />
-            <span className="text-yellow-600">AI Era</span>
           </h1>
 
           <div className="flex flex-col sm:flex-row gap-6 pt-12 text-white">

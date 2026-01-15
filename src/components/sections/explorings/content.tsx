@@ -41,7 +41,7 @@ export default function ExploringSection() {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-blue-100">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-left mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4" style={{ color: '#F5AB40' }}>
@@ -56,17 +56,19 @@ export default function ExploringSection() {
           {features.map((feature) => (
             <div
               key={feature.id}
-              className="group p-8 bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl border border-slate-200 hover:border-blue-600 hover:shadow-xl transition-all duration-300"
+              className="group p-8 bg-white rounded-lg border border-slate-200 hover:border-blue-600 hover:shadow-xl transition-all duration-300"
             >
-              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className='flex items-center gap-2'>
+                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
                 {feature.icon}
               </div>
 
               <h3 className="text-xl font-bold text-slate-900 mb-3">
                 {feature.title}
               </h3>
+                </div>
 
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-lx text-black">
                 {feature.description}
               </p>
             </div>
