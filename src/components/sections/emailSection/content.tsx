@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 import { submitToAirtable } from '@/app/actions';
+import { Mail } from 'lucide-react';
 
 export default function EmailSection() {
   const [isLoading, setIsLoading] = useState(false);
@@ -60,13 +61,16 @@ export default function EmailSection() {
             
           >
           <div className="flex flex-wrap gap-3 w-[clamp(200px,50vw,700px)]">
-              <input
+             <div className='flex-1 flex items-center gap-3 border px-6 py-4 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-900'>
+              <Mail className='text-gray-300'/>
+               <input
               type="email"
               name="email"
               required
-              className="flex-1 px-6 py-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-900 placeholder-gray-500"
+              className="w-full border-none outline-none placeholder-gray-400"
               placeholder="Enter your work email to confirm your attendance"
             />
+             </div>
             <button
               type="submit"
               disabled={isLoading}

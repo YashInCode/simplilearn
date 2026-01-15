@@ -10,7 +10,6 @@ import Footer from '@/components/footer/content';
 export default function Home() {
   return (
     <div className=" bg-white">
-      <Header />
       <HeroSection />
       <EmailSection />
       <ExploringSection />

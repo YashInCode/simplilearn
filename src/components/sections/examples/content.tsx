@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import Image from 'next/image';
 
 export default function ExamplesSection() {
@@ -20,13 +19,14 @@ export default function ExamplesSection() {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-yellow-400 mb-8 leading-tight">
+        <div className="grid grid-cols-1 lg:grid-cols-2  gap-12 items-start">
+          <div className="order-2 lg:order-2">
+            <h2 className="text-3xl sm:text-2xl lg:text-3xl font-bold text-yellow-500 mb-8 leading-tight">
               Go behind the curtain with real examples and high-scale insights
             </h2>
 
-            <p className="text-xl font-semibold text-gray-900 mb-6">
+            <div className='ml-10'>
+              <p className="text-xl font-semibold text-gray-900 mb-6">
               You'll walk away with:
             </p>
 
@@ -53,11 +53,12 @@ export default function ExamplesSection() {
               >
                 RSVP Now
               </button>
+              </div>
             </div>
           </div>
 
-          <div className="flex items-center justify-center h-80">
-            <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-lg">
+          <div className="flex items-center justify-center h-150">
+            <div className="relative w-full h-full rounded-2xl overflow-hidden">
               <Image
                 src="/images/examples/example-icon.png"
                 alt="3D Illustration"

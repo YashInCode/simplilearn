@@ -36,12 +36,13 @@ export default function FeatureSpeakers() {
           {speakers.map((speaker) => (
             <div key={speaker.id} className="flex flex-col md:flex-row gap-8 items-start">
               <div className="flex-shrink-0 w-full md:w-64">
-                <div className="relative h-72 w-64 bg-gradient-to-br from-blue-200 to-blue-300 rounded-lg overflow-hidden shadow-lg">
+                <div className="relative h-64 w-64 bg-gradient-to-br from-blue-200 to-blue-300 rounded-lg overflow-hidden shadow-lg">
                   {speaker.image ? (
                     <Image
                       src={speaker.image}
                       alt={speaker.name}
                       fill
+
                       className="object-cover"
                     />
                   ) : (
