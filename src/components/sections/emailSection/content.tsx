@@ -60,14 +60,14 @@ export default function EmailSection() {
             onSubmit={handleSubmit}
             
           >
-          <div className="flex flex-wrap gap-3 w-[clamp(200px,50vw,700px)]">
-             <div className='flex-1 flex items-center gap-3 border px-6 py-4 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-900'>
+          <div className="flex flex-wrap gap-3">
+             <div className='flex-1 w-[clamp(550px,70vw,700px)] flex items-center gap-3 border px-6 py-4 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-900'>
               <Mail className='text-gray-300'/>
                <input
               type="email"
               name="email"
               required
-              className="w-full border-none outline-none placeholder-gray-400"
+              className="w-[clamp(550px,70vw,700px)] border-none outline-none placeholder-gray-400 "
               placeholder="Enter your work email to confirm your attendance"
             />
              </div>
