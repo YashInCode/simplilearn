@@ -1,27 +1,8 @@
-import React from 'react';
 import Image from 'next/image';
+import { featureSpeakersData } from '../data';
 
 export default function FeatureSpeakers() {
-  const speakers = [
-    {
-      id: 1,
-      name: 'Rob Lauber',
-      bio: 'Rob Lauber is a global workforce and capability-building leader with over 25 years of experience helping organizations prepare leaders and frontline teams for change. Most recently, he served as SVP and Chief Learning Officer at McDonald\'s, leading learning and development across 37,000+ restaurants worldwide. His perspective is especially relevant as organizations rethink leadership and capability models in the age of AI.',
-      image: '/images/speakers/Rob Lauber.png'
-    },
-    {
-      id: 2,
-      name: 'Krishna Kumar',
-      bio: 'Krishna Kumar is the Founder and CEO of Simplilearn, working closely with enterprises navigating workforce transformation driven by AI and digital change. At the center of the learning and skills ecosystem, he brings a unique perspective on how roles, leadership expectations, and capabilities are evolving across industries. Through direct engagement with enterprise leaders and education partners, he sees what scales, and what doesn\'t, in building workforce readiness for AI era, offering a cross-enterprise view of the priorities shaping workforce strategy today.',
-      image: '/images/speakers/Krishna Kumar.png'
-    },
-    {
-      id: 3,
-      name: 'Sudipto Mitra',
-      bio: 'Sudipto Mitra is a senior transformation and growth leader with over 20 years of experience helping enterprises navigate large-scale change across technology, operations, and talent. As Chief Revenue Officer at Simplilearn, he works with executive teams to address workforce capability gaps as AI reshapes roles and operating models. He previously held leadership roles at Accenture, IBM Consulting, and WorkFusion.',
-      image: '/images/speakers/Sudipto Mitra.png'
-    },
-  ];
+  const speakers = featureSpeakersData;
 
   return (
     <section id="speakers" className="py-20" style={{ backgroundColor: '#112D8E' }}>

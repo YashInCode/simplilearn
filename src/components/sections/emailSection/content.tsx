@@ -1,99 +1,29 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
-import { submitToAirtable } from '@/app/actions';
-import { Mail } from 'lucide-react';
+import { useRsvpForm } from '@/hooks/useRsvpForm';
+import RsvpForm from '@/components/reusableComponents/RsvpForm';
 
 export default function EmailSection() {
-  const [isLoading, setIsLoading] = useState(false);
-  const [message, setMessage] = useState('');
-  const [messageType, setMessageType] = useState<'success' | 'error' | ''>('');
-  const formRef = useRef<HTMLFormElement>(null);
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setIsLoading(true);
-    setMessage('');
-
-    const formData = new FormData(e.currentTarget);
-    const email = formData.get('email') as string;
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      setMessageType('error');
-      setMessage('Please enter a valid email address.');
-      setIsLoading(false);
-      return;
-    }
-
-    try {
-      const result = await submitToAirtable({
-        email,
-        name: email.split('@')[0],
-        company: '',
-        message: '',
-      });
-      
-      if (result.success) {
-        setMessageType('success');
-        setMessage(result.message);
-        formRef.current?.reset();
-        setTimeout(() => setMessage(''), 5000);
-      } else {
-        setMessageType('error');
-        setMessage(result.message);
-      }
-    } catch (error) {
-      setMessageType('error');
-      setMessage('An unexpected error occurred. Please try again.');
-    } finally {
-      setIsLoading(false);
-    }
-  }
+  const { email, emailStored, isLoading, message, messageType, setEmail, handleRsvpNow, handleSendRsvpEmail, handleCancelRsvp } = useRsvpForm();
 
   return (
     <section id="rsvp" className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-12 flex flex-col sm:flex-row gap-3">
-          <form
-            ref={formRef}
-            onSubmit={handleSubmit}
-            
-          >
-          <div className="flex flex-wrap gap-3">
-             <div className='flex-1 w-[clamp(550px,70vw,700px)] flex items-center gap-3 border px-6 py-4 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-900'>
-              <Mail className='text-gray-300'/>
-               <input
-              type="email"
-              name="email"
-              required
-              className="w-[clamp(550px,70vw,700px)] border-none outline-none placeholder-gray-400 "
-              placeholder="Enter your work email to confirm your attendance"
-            />
-             </div>
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="text-white font-bold px-8 py-4 rounded-lg hover:bg-yellow-500 transition-colors whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
-              style={{ backgroundColor: '#F5AB40E5' }}
-            >
-              {isLoading ? 'Submitting...' : 'RSVP Now'}
-            </button>
-          </div>
-          </form>
+        <div className="mb-12">
+          <RsvpForm
+            email={email}
+            emailStored={emailStored}
+            isLoading={isLoading}
+            message={message}
+            messageType={messageType}
+            onEmailChange={setEmail}
+            onRsvpNow={handleRsvpNow}
+            onSendRsvp={handleSendRsvpEmail}
+            onCancel={handleCancelRsvp}
+            buttonColor="#F5AB40E5"
+            textColor="dark"
+          />
         </div>
-
-        {message && (
-          <div
-            className={`mb-12 p-4 rounded-lg text-center font-medium ${
-              messageType === 'success'
-                ? 'bg-green-50 text-green-700 border border-green-200'
-                : 'bg-red-50 text-red-700 border border-red-200'
-            }`}
-          >
-            {message}
-          </div>
-        )}
 
         <div className="space-y-8">
           <p className="text-xl text-gray-900 leading-relaxed">

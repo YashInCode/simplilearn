@@ -1,29 +1,13 @@
-import React from 'react';
+import { eventAgendaData } from '../data';
 
 export default function EventAgenda() {
-  const agendaItems = [
-    {
-      title: 'Welcome & Opening',
-      speaker: 'Sudipto Mitra, CRO Simplilearn',
-      description: 'Why capability-building is now a board-level issue and what\'s changing in the workforce landscape.',
-    },
-    {
-      title: 'Keynote: What Enterprise Leaders Are Seeing on the Ground',
-      speaker: 'Rob Lauber, Former CLO McDonald\'s',
-      description: 'A grounded view of how AI and AI agents are reshaping work, workflows, and leadership across industries.',
-    },
-    {
-      title: 'Lunch & Executive Conversation',
-      speaker: 'Industry Experts Invited',
-      description: 'What large enterprise talent ecosystems are learning about capability-building at scale.',
-    },
-  ];
+  const agendaItems = eventAgendaData;
 
   return (
-    <section id="agenda" className="py-20 bg-cyan-400">
+    <section id="agenda" className="py-20 " style={{backgroundColor:'#00FFFF'}}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-16">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-blue-900 mb-4">
+          <h2 className="text-4xl font-bold text-blue-700 mb-4">
             Event Agenda
           </h2>
         </div>
@@ -34,9 +18,12 @@ export default function EventAgenda() {
               key={index}
               className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow"
             >
-              <h3 className="text-xl sm:text-2xl font-bold text-blue-600 mb-4">
+              <div className='w-70 h-35'>
+                
+              <h3 className="text-lg sm:text-xl font-bold text-blue-600 mb-8">
                 {item.title}
               </h3>
+              </div>
 
               <p className="text-gray-900 font-semibold mb-4">
                 {item.speaker}

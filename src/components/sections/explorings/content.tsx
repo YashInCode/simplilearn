@@ -1,45 +1,7 @@
-import { BarChart3, CircuitBoard, History, Rocket, ShieldCheck, Workflow } from "lucide-react";
-
+import { exploringFeaturesData } from '../data';
 
 export default function ExploringSection() {
-  const features = [
-    {
-      id: 1,
-      icon:History,
-      title: 'Skill Decay',
-      description: 'every 2 -3 years fater for technical skill',
-    },
-    {
-      id: 2,
-      icon: Workflow,
-      title: 'Manager Role Shift',
-      description: 'orchestrating people + AI agents',
-    },
-    {
-      id: 3,
-      icon: BarChart3,
-      title: 'Leaders + AI CoPilots',
-      description: 'requires sensemaking and systerms thinking',
-    },
-    {
-      id: 4,
-      icon: ShieldCheck,
-      title: 'Frontline Capability',
-      description: 'now depends on digital fluency',
-    },
-    {
-      id: 5,
-      icon: CircuitBoard,
-      title: 'Core Human Capabiliites',
-      description: 'analytical reasoning nad scenario planning',
-    },
-    {
-      id: 6,
-      icon: Rocket,
-      title: 'Winning Organizations',
-      description: 'predict skills ahead of demand',
-    },
-  ];
+  const features = exploringFeaturesData;
 
   return (
     <section className="py-20 bg-blue-100">

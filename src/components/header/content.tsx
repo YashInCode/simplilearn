@@ -1,95 +1,65 @@
-'use client';
-
-import { useState } from 'react';
+import Image from 'next/image';
+import { Calendar, MapPin } from 'lucide-react';
+import simpliLearnLogo from '@/assets/images/hero/simplilearn.png';
+import headerBg from '@/assets/backgrounds/header_background.png';
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const navItems = [
-    { label: 'About', href: '#about' },
-    { label: 'Event Details', href: '#agenda' },
-    { label: 'Topics', href: '#speakers' },
-    { label: 'Contact', href: '#contact' },
-  ];
-
   return (
-    <header className="sticky top-0 z-50 bg-black/80 backdrop-blur-md border-b border-cyan-400/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex-shrink-0">
-            <a href="/" className="text-white font-light text-xl">
-              simpli<span className="font-semibold">learn</span>
-            </a>
-          </div>
-
-          <nav className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="text-white hover:text-cyan-400 transition-colors text-sm font-light"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          <div className="hidden md:block">
-            <a
-              href="#rsvp"
-              className="bg-cyan-400 text-black px-6 py-2 rounded font-bold hover:bg-cyan-300 transition-colors text-sm"
-            >
-              RSVP
-            </a>
-          </div>
-
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-white hover:text-cyan-400"
-              aria-label="Toggle menu"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        {isOpen && (
-          <div className="md:hidden pb-4 bg-black/95">
-            <nav className="flex flex-col space-y-2">
-              {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="text-white hover:text-cyan-400 py-2 transition-colors text-sm font-light"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
-                </a>
-              ))}
-              <a
-                href="#rsvp"
-                className="bg-cyan-400 text-black px-6 py-2 rounded font-bold hover:bg-cyan-300 transition-colors text-sm inline-block mt-2"
-                onClick={() => setIsOpen(false)}
-              >
-                RSVP
-              </a>
-            </nav>
-          </div>
-        )}
+    <section id="about" className="relative min-h-screen flex items-center overflow-hidden">
+      <div className="absolute inset-0">
+        <Image
+          src={headerBg}
+          alt="Event Background"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/40"></div>
       </div>
-    </header>
+
+      <div className="relative z-10 max-w-7xl  px-4 sm:px-6 lg:p-20">
+        <div className="space-y-6">
+          <div className="mb-25">
+            <Image
+            src={simpliLearnLogo}
+            alt="simplilearn"
+            height={305}
+            width={305}
+            />
+          </div>
+
+          <div className="inline-block">
+            <span className="text-outline bg-cyan-400 py-5 px-7 rounded font-bold text-xl tracking-wider">
+              Invite-Only
+            </span>
+            <span className="text-cyan-300 text-lg font-light pl-5">
+            An Executive Roundtable · Lunch
+          </span>
+          </div>
+
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold leading-tight max-w-5xl">
+            <span className="text-yellow-600">The Skills That Matter Next:</span>
+            <br />
+            <span className="text-yellow-600">Preparing Your Workforce</span>
+            <br />
+            <span className="text-yellow-600">&amp; Leaders for the AI Era</span>
+            <br />
+          </h1>
+
+          <div className="flex flex-col  gap-6 pt-12 text-white">
+            <div className="flex items-center gap-3">
+               <Calendar/>
+              <span className="text-xl font-semibold">February 20, 2026</span>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <MapPin/>
+              <span className="text-xl font-semibold">Chamberlain's Steak &amp; Fish House, Dallas</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
   );
 }
