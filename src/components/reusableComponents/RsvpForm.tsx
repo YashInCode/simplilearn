@@ -50,7 +50,7 @@ export default function RsvpForm({
               type="email"
               required
               className={`${
-                isFooter ? 'flex-1 bg-transparent text-white placeholder-gray-200' : 'w-full border-none outline-none placeholder-gray-400 bg-transparent'
+                isFooter ? 'flex-1 bg-transparent text-white placeholder-gray-200' : 'w-full border-none outline-none placeholder-gray-400 bg-transparent text-gray-900'
               } outline-none`}
               placeholder="Enter your work email to confirm your attendance"
               value={email}
